@@ -13,6 +13,7 @@ class Presentacion():
         self.peluqueria = Peluqueria.Peluqueria()
 
     def __mostrar_menu(self):
+        print('Programa de datos de Peluquería Canina')
         for k in self.opciones_menu.keys():
             print(k, self.opciones_menu[k])
 
@@ -30,13 +31,13 @@ class Presentacion():
         except Exception as e:
             print('Error cargando perro {}'.format(e))
 
-    def __editar(self):
+    def __editar_perro(self):
         try:
             nombre_perro_a_modificar = input('Ingrese el nombre del perro que se desea modificar: ')
             dato_a_modificar = int(input('1- Modificar domicilio 2- Modificar telefono: '))
             domicilio_modificado = ''
             telefono_modificado = ''
-            
+
             if dato_a_modificar == 1:
                 domicilio_modificado = input('Ingrese el nuevo domicilio: ')
             elif dato_a_modificar == 2:
@@ -44,7 +45,7 @@ class Presentacion():
             else:
                 print('Opción no válida.')
                 return
-            self.peluqueria.editar(nombre_perro_a_modificar, dato_a_modificar, domicilio_modificado, telefono_modificado)
+            self.peluqueria.editar_perro(nombre_perro_a_modificar, dato_a_modificar, domicilio_modificado, telefono_modificado)
         except Exception as e:
             print('Error editando perro {}'.format(e))
 
@@ -53,7 +54,7 @@ class Presentacion():
             self.__mostrar_menu()
             opcion = ''
             try:
-                opcion = int(input('Elija opción: '))
+                opcion = int(input('Elija una opción: '))
             except:
                 print('Opcion inválida')
 
@@ -62,6 +63,6 @@ class Presentacion():
             elif(opcion == 1):
                 self.__cargar_perro()
             elif(opcion == 2):
-                self.__editar()
+                self.__editar_perro()
             else:
                 print('Opcion invalida')

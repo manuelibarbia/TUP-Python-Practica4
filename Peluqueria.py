@@ -1,5 +1,4 @@
 import Datos
-import Presentacion
 
 class Perro():
 
@@ -30,10 +29,10 @@ class Peluqueria():
         print(perro)
         perro.guardar(self.conexionDB)
     
-    def editar(self, nombre_perro_a_modificar, dato_a_modificar, domicilio_modificado, telefono_modificado):
+    def editar_perro(self, nombre_perro_a_modificar, dato_a_modificar, domicilio_modificado, telefono_modificado):
         if dato_a_modificar == 1:
-            query = 'UPDATE perro SET direccion = {} WHERE nombre = {}'.format(domicilio_modificado, nombre_perro_a_modificar)
+            query = 'UPDATE perro SET direccion = "{}" WHERE nombre = "{}"'.format(domicilio_modificado, nombre_perro_a_modificar)
         else:
-            query = 'UPDATE perro SET telefono = {} WHERE nombre = {}'.format(telefono_modificado, nombre_perro_a_modificar)
+            query = 'UPDATE perro SET telefono = "{}" WHERE nombre = "{}"'.format(telefono_modificado, nombre_perro_a_modificar)
         print(query)
         self.conexionDB.ejecutar_query(query)
