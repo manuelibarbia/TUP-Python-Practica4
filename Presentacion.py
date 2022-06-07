@@ -6,7 +6,8 @@ class Presentacion():
     opciones_menu = {
         0: 'Salir',
         1: 'Cargar Perro',
-        2: 'Editar Perro'
+        2: 'Editar Perro',
+        3: 'Borrar Perro'
     }
 
     def __init__(self):
@@ -49,6 +50,14 @@ class Presentacion():
         except Exception as e:
             print('Error editando perro {}'.format(e))
 
+    def __borrar_perro(self):
+        try:
+            nombre_perro_a_borrar = input('Ingrese el nombre del perro que se desea borrar: ')
+
+            self.peluqueria.borrar_perro(nombre_perro_a_borrar)
+        except Exception as e:
+            print('Error borrando perro {}'.format(e))
+
     def menu(self):
         while True:
             self.__mostrar_menu()
@@ -64,5 +73,7 @@ class Presentacion():
                 self.__cargar_perro()
             elif(opcion == 2):
                 self.__editar_perro()
+            elif(opcion == 3):
+                self.__borrar_perro()
             else:
-                print('Opcion invalida')
+                print('Opcion inválida')

@@ -34,5 +34,8 @@ class Peluqueria():
             query = 'UPDATE perro SET direccion = "{}" WHERE nombre = "{}"'.format(domicilio_modificado, nombre_perro_a_modificar)
         else:
             query = 'UPDATE perro SET telefono = "{}" WHERE nombre = "{}"'.format(telefono_modificado, nombre_perro_a_modificar)
-        print(query)
+        self.conexionDB.ejecutar_query(query)
+
+    def borrar_perro(self, nombre_perro_a_borrar):
+        query = 'DELETE FROM perro WHERE nombre = "{}"'.format(nombre_perro_a_borrar)
         self.conexionDB.ejecutar_query(query)
