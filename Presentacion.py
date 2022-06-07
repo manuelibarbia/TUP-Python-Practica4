@@ -35,14 +35,14 @@ class Presentacion():
     def __editar_perro(self):
         try:
             nombre_perro_a_modificar = input('Ingrese el nombre del perro que desea modificar: ')
-            dato_a_modificar = int(input('1- Modificar domicilio 2- Modificar telefono: '))
+            dato_a_modificar = int(input('1- Modificar domicilio 2- Modificar teléfono: '))
             domicilio_modificado = ''
             telefono_modificado = ''
 
             if dato_a_modificar == 1:
                 domicilio_modificado = input('Ingrese el nuevo domicilio: ')
             elif dato_a_modificar == 2:
-                telefono_modificado = input('Ingrese el nuevo telefono: ')
+                telefono_modificado = input('Ingrese el nuevo teléfono: ')
             else:
                 print('Opción no válida.')
                 return
