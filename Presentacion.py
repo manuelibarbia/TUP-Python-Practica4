@@ -9,7 +9,8 @@ class Presentacion():
         1: 'Cargar perro',
         2: 'Editar perro',
         3: 'Borrar perro',
-        4: 'Cargar motivo de visita del perro'
+        4: 'Cargar motivo de visita del perro',
+        5: 'Mostrar listado de perros'
     }
 
     def __init__(self):
@@ -69,6 +70,12 @@ class Presentacion():
         except Exception as e:
             print('Error cargando motivo de visita {}'.format(e))
 
+    def __mostrar_listado_de_perros(self):
+        try:
+            self.peluqueria.mostrar_listado_de_perros()
+        except Exception as e:
+            print('Error mostrando listado {}'.format(e))
+
     def menu(self):
         while True:
             self.__mostrar_menu()
@@ -88,5 +95,7 @@ class Presentacion():
                 self.__borrar_perro()
             elif(opcion == 4):
                 self.__cargar_motivo_visita()
+            elif(opcion == 5):
+                self.__mostrar_listado_de_perros()
             else:
                 print('Opción inválida.')

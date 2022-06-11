@@ -24,4 +24,7 @@ class DBConexion():
 
     def ejecutar_query(self, query):
         self.__miCursor.execute(query)
-        self.__miConexion.commit() 
+        self.__miConexion.commit()
+
+    # def fetch_all(self):
+    #     self.__miCursor.fetchall()

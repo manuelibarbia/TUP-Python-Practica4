@@ -1,3 +1,4 @@
+from multiprocessing.connection import Connection
 import Datos
 
 class Perro():
@@ -52,3 +53,9 @@ class Peluqueria():
             baño_y_corte = 1
             query = 'UPDATE perro SET baño_y_corte = baño_y_corte + "{}" WHERE nombre = "{}"'.format(baño_y_corte, perro_cargar_visita)
         self.conexionDB.ejecutar_query(query)
+
+    # def mostrar_listado_de_perros(self):
+    #     query = "SELECT * FROM perro"
+    #     self.conexionDB.ejecutar_query(query)
+    #     perros = self.conexionDB.fetch_all()
+    #     print(perros)
