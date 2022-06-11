@@ -63,7 +63,7 @@ class Presentacion():
     def __cargar_motivo_visita(self):
         try:
             perro_cargar_visita = input('Ingrese el nombre del perro para cargar su motivo de visita: ')
-            motivo_visita = int(input(('Si el perro viene por baño, ingrese 1, si viene por baño y corte, ingrese 2: ')))
+            motivo_visita = int(input('Si el perro viene por baño, ingrese 1, si viene por baño y corte, ingrese 2: '))
 
             self.peluqueria.cargar_motivo_visita(perro_cargar_visita, motivo_visita)
         except Exception as e:

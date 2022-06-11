@@ -42,12 +42,13 @@ class Peluqueria():
         self.conexionDB.ejecutar_query(query)
 
     def cargar_motivo_visita(self, perro_cargar_visita, motivo_visita, baño=0, baño_y_corte=0):
-        if motivo_visita is None or (motivo_visita != 1 | motivo_visita !=2):
+        if motivo_visita != 1 and motivo_visita != 2:
             raise Exception('Opción no válida')
+
         if motivo_visita == 1:
-            baño +=1
-            query = 'UPDATE perro SET baño = "{}" WHERE nombre = "{}"'.format(baño, perro_cargar_visita)
+            baño = 1
+            query = 'UPDATE perro SET baño = baño + "{}" WHERE nombre = "{}"'.format(baño, perro_cargar_visita)
         else:
-            baño_y_corte +=1
-            query = 'UPDATE perro SET baño_y_corte = "{}" WHERE nombre = "{}"'.format(baño_y_corte, perro_cargar_visita)
+            baño_y_corte = 1
+            query = 'UPDATE perro SET baño_y_corte = baño_y_corte + "{}" WHERE nombre = "{}"'.format(baño_y_corte, perro_cargar_visita)
         self.conexionDB.ejecutar_query(query)
