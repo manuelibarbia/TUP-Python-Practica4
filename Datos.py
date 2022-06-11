@@ -17,7 +17,9 @@ class DBConexion():
                                                     nombre text,
                                                     dueno text,
                                                     direccion text,
-                                                    telefono text)'''
+                                                    telefono text,
+                                                    baño integer,
+                                                    baño_y_corte integer)'''
         self.ejecutar_query(query)
 
     def ejecutar_query(self, query):

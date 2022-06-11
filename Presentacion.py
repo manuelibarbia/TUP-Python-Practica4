@@ -1,3 +1,4 @@
+from ast import While
 import Peluqueria
 
 
@@ -5,9 +6,10 @@ class Presentacion():
 
     opciones_menu = {
         0: 'Salir',
-        1: 'Cargar Perro',
-        2: 'Editar Perro',
-        3: 'Borrar Perro'
+        1: 'Cargar perro',
+        2: 'Editar perro',
+        3: 'Borrar perro',
+        4: 'Cargar motivo de visita del perro'
     }
 
     def __init__(self):
@@ -26,7 +28,7 @@ class Presentacion():
             nombre = input('Ingrese el nombre del perro: ') 
             dueno = input('Ingrese el nombre del dueño: ') 
             direccion = input('Ingrese la dirección del dueño: ') 
-            telefono = input('Ingrese el teléfono del dueño: ') 
+            telefono = input('Ingrese el teléfono del dueño: ')
 
             self.peluqueria.cargar_perro(nombre, dueno, direccion, telefono)
         except Exception as e:
@@ -58,6 +60,15 @@ class Presentacion():
         except Exception as e:
             print('Error borrando perro {}'.format(e))
 
+    def __cargar_motivo_visita(self):
+        try:
+            perro_cargar_visita = input('Ingrese el nombre del perro para cargar su motivo de visita: ')
+            motivo_visita = int(input(('Si el perro viene por baño, ingrese 1, si viene por baño y corte, ingrese 2: ')))
+
+            self.peluqueria.cargar_motivo_visita(perro_cargar_visita, motivo_visita)
+        except Exception as e:
+            print('Error cargando motivo de visita {}'.format(e))
+
     def menu(self):
         while True:
             self.__mostrar_menu()
@@ -75,5 +86,7 @@ class Presentacion():
                 self.__editar_perro()
             elif(opcion == 3):
                 self.__borrar_perro()
+            elif(opcion == 4):
+                self.__cargar_motivo_visita()
             else:
                 print('Opción inválida.')
