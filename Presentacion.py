@@ -13,7 +13,8 @@ class Presentacion():
         3: 'Borrar perro',
         4: 'Cargar motivo de visita del perro',
         5: 'Mostrar listado de perros',
-        6: 'Agregar comportamiento del perro'
+        6: 'Agregar comportamiento del perro',
+        7: 'Agregar personal'
     }
 
     def __init__(self):
@@ -86,7 +87,24 @@ class Presentacion():
 
             self.peluqueria.agregar_comportamiento_perro(perro_cargar_comportamiento, comportamiento)           
         except Extension as e:
-            print('Error cargando comportamiento del perro {}'.format(e))           
+            print('Error cargando comportamiento del perro {}'.format(e))   
+
+    def __cargar_personal(self):
+        try:
+            codigo_identificatorio = input('Codigo empleado: ') 
+            nombre = input('Ingrese el nombre del empleado: ') 
+            apellido = input('Ingrese apellido: ') 
+            DNI = input('Ingrese DNI: ') 
+            direccion = input('Ingrese direccion: ') 
+            telefono = input('Ingrese telefono: ') 
+            email = input('Ingrese email: ') 
+            años_experiencia = input('Ingrese años experiencia: ') 
+            sueldo = input('Ingrese sueldo: ') 
+
+            self.peluqueria.cargar_personal(codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
+        except Exception as e:
+            print('Error cargando personal {}'.format(e))
+
 
     def menu(self):
         while True:
@@ -110,6 +128,8 @@ class Presentacion():
             elif(opcion == 5):
                 self.__mostrar_listado_de_perros()
             elif(opcion == 6):
-                self.__agregar_comportamiento_perro()    
+                self.__agregar_comportamiento_perro()
+            elif(opcion == 7):
+                self.__cargar_personal()       
             else:
                 print('Opción inválida.')

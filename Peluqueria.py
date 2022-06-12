@@ -19,6 +19,25 @@ class Perro():
     def __str__(self):
         return ('{} {} {} {} {} {} {}'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte, self.comportamiento))
 
+class Personal():
+    def __init__(self, codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
+        self.codigo_identificatorio = codigo_identificatorio
+        self.nombre = nombre
+        self.apellido = apellido
+        self.DNI = DNI
+        self.direccion = direccion  
+        self.telefono = telefono
+        self.email = email
+        self.años_experiencia = años_experiencia
+        self.sueldo = sueldo
+
+    def guardar(self, dbc):
+        query = 'INSERT INTO personal (codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo) VALUES (\"{}\", \"{}\", \"{}\", \"{}\",\"{}\", \"{}\", \"{}\", \"{}\", \"{}\")'.format(self.codigo_identificatorio, self.nombre, self.apellido, self.DNI, self.direccion, self.telefono, self.email, self.años_experiencia, self.sueldo)
+        dbc.ejecutar_query(query)
+
+    def __str__(self):
+        return ('{} {} {} {} {} {} {} {} {}'.format(self.codigo_identificatorio, self.nombre, self.apellido, self.DNI, self.direccion, self.telefono, self.email, self.años_experiencia, self.sueldo))    
+
 class Peluqueria():
 
     def __init__(self):
@@ -78,3 +97,14 @@ class Peluqueria():
             muy_malo  = "Muy malo"
             query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_malo, perro_cargar_comportamiento)        
         self.conexionDB.ejecutar_query(query)
+
+    
+    def cargar_personal(self, codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
+        if nombre is None or nombre == '':
+            raise Exception('Nombre del personal inválido')
+        if apellido is None or apellido == '':
+            raise Exception('Apellido del personal inválido')
+        empleado = Personal(codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
+        empleado.guardar(self.conexionDB)    
+
+
