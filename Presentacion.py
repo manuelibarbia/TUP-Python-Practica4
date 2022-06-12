@@ -1,4 +1,6 @@
 from ast import While
+from msilib.schema import Extension
+from os import execlp
 import Peluqueria
 
 
@@ -10,7 +12,8 @@ class Presentacion():
         2: 'Editar perro',
         3: 'Borrar perro',
         4: 'Cargar motivo de visita del perro',
-        5: 'Mostrar listado de perros'
+        5: 'Mostrar listado de perros',
+        6: 'Agregar comportamiento del perro'
     }
 
     def __init__(self):
@@ -76,6 +79,15 @@ class Presentacion():
         except Exception as e:
             print('Error mostrando listado {}'.format(e))
 
+    def __agregar_comportamiento_perro(self):
+        try:          
+            perro_cargar_comportamiento = input('Ingrese el nombre del perro para cargar su comportamiento: ')
+            comportamiento = int(input('Ingrese el valor de acuerdo a como se comporto el perro: 1 Muy bien, 2 Bien, 3 Mal, 4 Muy mal: '))
+
+            self.peluqueria.agregar_comportamiento_perro(perro_cargar_comportamiento, comportamiento)           
+        except Extension as e:
+            print('Error cargando comportamiento del perro {}'.format(e))           
+
     def menu(self):
         while True:
             self.__mostrar_menu()
@@ -97,5 +109,7 @@ class Presentacion():
                 self.__cargar_motivo_visita()
             elif(opcion == 5):
                 self.__mostrar_listado_de_perros()
+            elif(opcion == 6):
+                self.__agregar_comportamiento_perro()    
             else:
                 print('Opción inválida.')

@@ -3,20 +3,21 @@ import Datos
 
 class Perro():
 
-    def __init__(self, nombre, dueno, direccion, telefono, baño=0, baño_y_corte=0):
+    def __init__(self, nombre, dueno, direccion, telefono, baño=0, baño_y_corte=0, comportamiento = 0):
         self.nombre = nombre
         self.dueno = dueno
         self.direccion = direccion
         self.telefono = telefono
         self.baño = baño
         self.baño_y_corte = baño_y_corte
+        self.comportamiento = comportamiento
     
     def guardar(self, dbc):
-        query = 'INSERT INTO perro (nombre, dueno, direccion, telefono, baño, baño_y_corte) VALUES (\"{}\", \"{}\", \"{}\",\"{}\", \"{}\", \"{}\")'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte)
+        query = 'INSERT INTO perro (nombre, dueno, direccion, telefono, baño, baño_y_corte, comportamiento) VALUES (\"{}\", \"{}\", \"{}\", \"{}\",\"{}\", \"{}\", \"{}\")'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte, self.comportamiento)
         dbc.ejecutar_query(query)
 
     def __str__(self):
-        return ('{} {} {} {} {} {}'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte))
+        return ('{} {} {} {} {} {} {}'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte, self.comportamiento))
 
 class Peluqueria():
 
@@ -59,3 +60,21 @@ class Peluqueria():
     #     self.conexionDB.ejecutar_query(query)
     #     perros = self.conexionDB.fetch_all()
     #     print(perros)
+
+    def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
+        if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
+            raise Exception('Opción no válida')
+
+        if comportamiento == 1:
+            muy_bueno  = "Muy bueno"
+            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_bueno, perro_cargar_comportamiento)
+        elif comportamiento == 2:
+            bueno  = "Bueno"
+            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(bueno, perro_cargar_comportamiento)    
+        elif comportamiento == 3:
+            malo  = "Malo"
+            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(malo, perro_cargar_comportamiento)          
+        elif comportamiento == 4:
+            muy_malo  = "Muy malo"
+            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_malo, perro_cargar_comportamiento)        
+        self.conexionDB.ejecutar_query(query)
