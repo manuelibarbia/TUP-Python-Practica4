@@ -25,7 +25,7 @@ class DBConexion():
         self.ejecutar_query(query)
     
     def __crear_tabla_personal(self):
-        query = '''CREATE TABLE IF NOT EXISTS personal(codigo_identificatorio integer,
+        query = '''CREATE TABLE IF NOT EXISTS personal(codigo_identificatorio TEXT PRIMARY KEY,
                                                     nombre text,
                                                     apellido text,
                                                     DNI text,
