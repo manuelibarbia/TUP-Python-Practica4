@@ -86,9 +86,12 @@ class Peluqueria():
         query = "SELECT * FROM perro"
         self.conexionDB.ejecutar_query(query)
         perros = self.conexionDB.fetch_all()
-        print("ID ******* NOMBRE ******* DUEÑO ******* DOMICILIO ******* TELÉFONO ******* BAÑO ******* BAÑO Y CORTE")
-        for datos in perros:
-            print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]))
+        if perros is None or perros == []:
+            print("No hay perros cargados para mostrar")
+        else:  
+            print("ID ******* NOMBRE ******* DUEÑO ******* DOMICILIO ******* TELÉFONO ******* BAÑO ******* BAÑO Y CORTE")
+            for datos in perros:
+                print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]))
 
     def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
         if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
@@ -126,6 +129,9 @@ class Peluqueria():
         self.conexionDB.ejecutar_query(query)
         peluqueros = self.conexionDB.fetch_all()
 
-        print("CODIGO_IDENTIFICATORIO ******* NOMBRE ******* APELLIDO ******* DNI ******* DIRECCIÓN ******* TELÉFONO ******* EMAIL ******* AÑOS_EXPERIENCIA ******* SUELDO")
-        for datos in peluqueros:
-            print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]) + " ******* " + str(datos[8]))
+        if peluqueros is None or peluqueros == []:
+            print("No hay peluqueros con sueldo mayor a {}".format(monto))
+        else: 
+            print("CODIGO_IDENTIFICATORIO ******* NOMBRE ******* APELLIDO ******* DNI ******* DIRECCIÓN ******* TELÉFONO ******* EMAIL ******* AÑOS_EXPERIENCIA ******* SUELDO")
+            for datos in peluqueros:
+                print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]) + " ******* " + str(datos[8]))

@@ -27,6 +27,7 @@ class Presentacion():
             print(k, self.opciones_menu[k])
 
     def __salir(self):
+        print('Programa finalizado')
         exit(0)
 
     def __cargar_perro(self):
@@ -141,6 +142,6 @@ class Presentacion():
             elif(opcion == 7):
                 self.__cargar_personal()
             elif(opcion == 8):
-                self.__listado_peluqueros()   
+                self.__listado_peluqueros() 
             else:
                 print('Opción inválida.')
