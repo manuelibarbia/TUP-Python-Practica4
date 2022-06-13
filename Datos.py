@@ -29,11 +29,11 @@ class DBConexion():
                                                     nombre text,
                                                     apellido text,
                                                     DNI text,
-                                                    direccion integer,
+                                                    direccion text,
                                                     telefono integer,
                                                     email text,
-                                                    años_experiencia text,
-                                                    sueldo integer)'''
+                                                    años_experiencia integer,
+                                                    sueldo real)'''
         self.ejecutar_query(query)
        
     def ejecutar_query(self, query):

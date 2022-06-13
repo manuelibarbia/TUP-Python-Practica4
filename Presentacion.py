@@ -93,13 +93,13 @@ class Presentacion():
         try:
             puesto = int(input('Ingrese 1 si es peluquero, 2 si es recepcionista: '))
             nombre = input('Ingrese el nombre del empleado: ')
-            apellido = input('Ingrese apellido: ') 
-            DNI = input('Ingrese DNI: ') 
-            direccion = input('Ingrese direccion: ') 
-            telefono = input('Ingrese telefono: ') 
-            email = input('Ingrese email: ') 
-            años_experiencia = input('Ingrese años experiencia: ') 
-            sueldo = input('Ingrese sueldo: ') 
+            apellido = input('Ingrese apellido: ')
+            DNI = input('Ingrese DNI: ')
+            direccion = input('Ingrese direccion: ')
+            telefono = int(input('Ingrese telefono: '))
+            email = input('Ingrese email: ')
+            años_experiencia = int(input('Ingrese años experiencia: '))
+            sueldo = float(input('Ingrese sueldo: '))
 
             self.peluqueria.cargar_personal(puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
         except Exception as e:
