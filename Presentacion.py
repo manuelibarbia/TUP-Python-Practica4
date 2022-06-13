@@ -14,7 +14,8 @@ class Presentacion():
         4: 'Cargar motivo de visita del perro',
         5: 'Mostrar listado de perros',
         6: 'Agregar comportamiento del perro',
-        7: 'Agregar personal'
+        7: 'Agregar personal',
+        8: 'Listado peluqueros'
     }
 
     def __init__(self):
@@ -105,6 +106,14 @@ class Presentacion():
         except Exception as e:
             print('Error cargando personal {}'.format(e))
 
+    def __listado_peluqueros(self):
+        try:
+            monto = float(input('Ingrese el monto para listar aquellos peluqueros con sueldo superior al ingresado: '))
+
+            self.peluqueria.listado_peluqueros(monto)
+        except Exception as e:
+            print('Error mostrando listado de peluqueros {}'.format(e))
+
 
     def menu(self):
         while True:
@@ -130,6 +139,8 @@ class Presentacion():
             elif(opcion == 6):
                 self.__agregar_comportamiento_perro()
             elif(opcion == 7):
-                self.__cargar_personal()       
+                self.__cargar_personal()
+            elif(opcion == 8):
+                self.__listado_peluqueros()   
             else:
                 print('Opción inválida.')

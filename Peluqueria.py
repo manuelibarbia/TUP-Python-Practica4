@@ -107,8 +107,7 @@ class Peluqueria():
             muy_malo  = "Muy malo"
             query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_malo, perro_cargar_comportamiento)        
         self.conexionDB.ejecutar_query(query)
-
-    
+   
     def cargar_personal(self, puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
         if puesto != 1 and puesto !=2:
             raise Exception('Opción no válida')
@@ -118,3 +117,15 @@ class Peluqueria():
             raise Exception('Apellido del personal inválido')
         empleado = Personal(puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
         empleado.guardar(self.conexionDB)
+
+    def listado_peluqueros(self, monto):
+        if monto is None:
+            raise Exception('Monto no válido')
+        
+        query = "SELECT * FROM personal WHERE codigo_identificatorio LIKE 'PQ%' AND sueldo > '{}'".format(monto)
+        self.conexionDB.ejecutar_query(query)
+        peluqueros = self.conexionDB.fetch_all()
+
+        print("CODIGO_IDENTIFICATORIO ******* NOMBRE ******* APELLIDO ******* DNI ******* DIRECCIÓN ******* TELÉFONO ******* EMAIL ******* AÑOS_EXPERIENCIA ******* SUELDO")
+        for datos in peluqueros:
+            print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]) + " ******* " + str(datos[8]))
