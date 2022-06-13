@@ -74,11 +74,13 @@ class Peluqueria():
             query = 'UPDATE perro SET baño_y_corte = baño_y_corte + "{}" WHERE nombre = "{}"'.format(baño_y_corte, perro_cargar_visita)
         self.conexionDB.ejecutar_query(query)
 
-    # def mostrar_listado_de_perros(self):
-    #     query = "SELECT * FROM perro"
-    #     self.conexionDB.ejecutar_query(query)
-    #     perros = self.conexionDB.fetch_all()
-    #     print(perros)
+    def mostrar_listado_de_perros(self):
+        query = "SELECT * FROM perro"
+        self.conexionDB.ejecutar_query(query)
+        perros = self.conexionDB.fetch_all()
+        print("ID ------ NOMBRE ------ DUEÑO ------ DOMICILIO ------ TELÉFONO ------ BAÑO ------ BAÑO Y CORTE")
+        for datos in perros:
+            print(str(datos[0]) + " ------ " + str(datos[1]) + " ------ " + str(datos[2]) + " ------ " + str(datos[3]) + " ------ " + str(datos[4]) + " ------ " + str(datos[5]) + " ------ " + str(datos[6]))
 
     def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
         if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
