@@ -91,8 +91,8 @@ class Presentacion():
 
     def __cargar_personal(self):
         try:
-            codigo_identificatorio = input('Codigo empleado: ') 
-            nombre = input('Ingrese el nombre del empleado: ') 
+            puesto = int(input('Ingrese 1 si es peluquero, 2 si es recepcionista: '))
+            nombre = input('Ingrese el nombre del empleado: ')
             apellido = input('Ingrese apellido: ') 
             DNI = input('Ingrese DNI: ') 
             direccion = input('Ingrese direccion: ') 
@@ -101,7 +101,7 @@ class Presentacion():
             años_experiencia = input('Ingrese años experiencia: ') 
             sueldo = input('Ingrese sueldo: ') 
 
-            self.peluqueria.cargar_personal(codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
+            self.peluqueria.cargar_personal(puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
         except Exception as e:
             print('Error cargando personal {}'.format(e))
 

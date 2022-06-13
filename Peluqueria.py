@@ -20,8 +20,9 @@ class Perro():
         return ('{} {} {} {} {} {} {}'.format(self.nombre, self.dueno, self.direccion, self.telefono, self.baño, self.baño_y_corte, self.comportamiento))
 
 class Personal():
-    def __init__(self, codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
-        self.codigo_identificatorio = codigo_identificatorio
+    def __init__(self, puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
+
+        self.codigo_identificatorio = self.generar_legajo(puesto, DNI)
         self.nombre = nombre
         self.apellido = apellido
         self.DNI = DNI
@@ -36,7 +37,14 @@ class Personal():
         dbc.ejecutar_query(query)
 
     def __str__(self):
-        return ('{} {} {} {} {} {} {} {} {}'.format(self.codigo_identificatorio, self.nombre, self.apellido, self.DNI, self.direccion, self.telefono, self.email, self.años_experiencia, self.sueldo))    
+        return ('{} {} {} {} {} {} {} {} {}'.format(self.codigo_identificatorio, self.nombre, self.apellido, self.DNI, self.direccion, self.telefono, self.email, self.años_experiencia, self.sueldo))
+
+    def generar_legajo(self, puesto, DNI):
+        ultimos_digitos = str(DNI)[-3:]
+        if puesto == 1:
+            return('PQ_'+ultimos_digitos)
+        else:
+            return('RC_'+ultimos_digitos)
 
 class Peluqueria():
 
@@ -78,9 +86,9 @@ class Peluqueria():
         query = "SELECT * FROM perro"
         self.conexionDB.ejecutar_query(query)
         perros = self.conexionDB.fetch_all()
-        print("ID ------ NOMBRE ------ DUEÑO ------ DOMICILIO ------ TELÉFONO ------ BAÑO ------ BAÑO Y CORTE")
+        print("ID ******* NOMBRE ******* DUEÑO ******* DOMICILIO ******* TELÉFONO ******* BAÑO ******* BAÑO Y CORTE")
         for datos in perros:
-            print(str(datos[0]) + " ------ " + str(datos[1]) + " ------ " + str(datos[2]) + " ------ " + str(datos[3]) + " ------ " + str(datos[4]) + " ------ " + str(datos[5]) + " ------ " + str(datos[6]))
+            print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]))
 
     def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
         if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
@@ -101,12 +109,12 @@ class Peluqueria():
         self.conexionDB.ejecutar_query(query)
 
     
-    def cargar_personal(self, codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
+    def cargar_personal(self, puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
+        if puesto != 1 and puesto !=2:
+            raise Exception('Opción no válida')
         if nombre is None or nombre == '':
             raise Exception('Nombre del personal inválido')
         if apellido is None or apellido == '':
             raise Exception('Apellido del personal inválido')
-        empleado = Personal(codigo_identificatorio, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
-        empleado.guardar(self.conexionDB)    
-
-
+        empleado = Personal(puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo)
+        empleado.guardar(self.conexionDB)
