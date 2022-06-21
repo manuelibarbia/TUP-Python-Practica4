@@ -88,7 +88,7 @@ class Presentacion():
             comportamiento = int(input('Ingrese el valor de acuerdo a como se comporto el perro: 1 Muy bien, 2 Bien, 3 Mal, 4 Muy mal: '))
 
             self.peluqueria.agregar_comportamiento_perro(perro_cargar_comportamiento, comportamiento)           
-        except Extension as e:
+        except Exception as e:
             print('Error cargando comportamiento del perro {}'.format(e))   
 
     def __cargar_personal(self):
