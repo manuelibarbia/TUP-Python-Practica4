@@ -136,4 +136,4 @@ class Peluqueria():
             print("CODIGO_IDENTIFICATORIO ******* NOMBRE ******* APELLIDO ******* DNI ******* DIRECCIÓN ******* TELÉFONO ******* EMAIL ******* AÑOS_EXPERIENCIA ******* SUELDO")
             for datos in peluqueros:
                 print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]) + " ******* " + str(datos[8]))
-                #pprint.pprint(datos)
+                #pprint.pprint(datos) mostrar datos de otra forma
