@@ -120,10 +120,10 @@ button_borrar_perro.grid(row=1, column=1, pady=30)
 
 #**********Agregar motivo**********#
 
-label_nombre_personal = ttk.Label(tabla4, text="Nombre del perro:")
-label_nombre_personal.grid(row=0, column=0, padx=10, pady=10)
-entry_nombre_personal = ttk.Entry(tabla4)
-entry_nombre_personal.grid(row=0, column=1, padx=10, pady=10)
+label_nombre_perroo = ttk.Label(tabla4, text="Nombre del perro:")
+label_nombre_perroo.grid(row=0, column=0, padx=10, pady=10)
+entry_nombre_perroo = ttk.Entry(tabla4)
+entry_nombre_perroo.grid(row=0, column=1, padx=10, pady=10)
 
 label_baño = ttk.Label(tabla4, text="Motivo:")
 label_baño.grid(row=1, column=0, padx=10, pady=10)
@@ -168,5 +168,57 @@ button_agregar_perro = ttk.Button(tabla6, text = "Agregar" )
 button_agregar_perro.grid(row=1, column=1, pady=30)
 
 #**********Agregar comportamiento**********#
+
+#**********Agregar personal**********#
+
+label_codigo_identificatorio = ttk.Label(tabla7, text="Codigo identificatorio:")
+label_codigo_identificatorio.grid(row=0, column=0, padx=10, pady=10)
+entry_codigo_identificatorio = ttk.Entry(tabla7)
+entry_codigo_identificatorio.grid(row=0, column=1, padx=10, pady=10)
+
+label_nombre_personal = ttk.Label(tabla7, text="Nombre:")
+label_nombre_personal.grid(row=1, column=0, padx=10, pady=10)
+entry_nombre_personal = ttk.Entry(tabla7)
+entry_nombre_personal.grid(row=1, column=1, padx=10, pady=10)
+
+label_apellido_personal = ttk.Label(tabla7, text="Apellido:")
+label_apellido_personal.grid(row=2, column=0, padx=10, pady=10)
+entry_apellido_personal = ttk.Entry(tabla7)
+entry_apellido_personal.grid(row=2, column=1, padx=10, pady=10)
+
+label_dni = ttk.Label(tabla7, text="DNI:")
+label_dni.grid(row=3, column=0, padx=10, pady=10)
+entry_dni = ttk.Entry(tabla7)
+entry_dni.grid(row=3, column=1, padx=10, pady=10)
+
+label_direccion_personal = ttk.Label(tabla7, text="Direccion:")
+label_direccion_personal.grid(row=4, column=0, padx=10, pady=10)
+entry_direccion_personal = ttk.Entry(tabla7)
+entry_direccion_personal.grid(row=4, column=1, padx=10, pady=10)
+
+label_telefono_personal = ttk.Label(tabla7, text="Telefono:")
+label_telefono_personal.grid(row=5, column=0, padx=10, pady=10)
+entry_telefono_personal = ttk.Entry(tabla7)
+entry_telefono_personal.grid(row=5, column=1, padx=10, pady=10)
+
+label_email_personal = ttk.Label(tabla7, text="Email:")
+label_email_personal.grid(row=6, column=0, padx=10, pady=10)
+entry_email_personal = ttk.Entry(tabla7)
+entry_email_personal.grid(row=6, column=1, padx=10, pady=10)
+
+label_años_experiencia = ttk.Label(tabla7, text="Años de experiencia:")
+label_años_experiencia.grid(row=7, column=0, padx=10, pady=10)
+entry_años_experiencia = ttk.Entry(tabla7)
+entry_años_experiencia.grid(row=7, column=1, padx=10, pady=10)
+
+label_sueldo_personal = ttk.Label(tabla7, text="Sueldo:")
+label_sueldo_personal.grid(row=8, column=0, padx=10, pady=10)
+entry_sueldo_personal = ttk.Entry(tabla7)
+entry_sueldo_personal.grid(row=8, column=1, padx=10, pady=10)
+
+button_agregar_perro = ttk.Button(tabla7, text = "Agregar" )
+button_agregar_perro.grid(row=9, column=1, pady=30)
+
+#**********Agregar personal**********#
 
 root.mainloop()
