@@ -94,22 +94,18 @@ class Peluqueria():
             for datos in perros:
                 print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]))
 
-    def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
+    def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento):
         if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
             raise Exception('Opción no válida')
 
         if comportamiento == 1:
-            muy_bueno  = "Muy bueno"
-            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_bueno, perro_cargar_comportamiento)
+            query = 'UPDATE perro SET comportamiento = "Muy bueno" WHERE nombre = "{}"'.format(perro_cargar_comportamiento)
         elif comportamiento == 2:
-            bueno  = "Bueno"
-            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(bueno, perro_cargar_comportamiento)    
+            query = 'UPDATE perro SET comportamiento = "Bueno" WHERE nombre = "{}"'.format(perro_cargar_comportamiento)    
         elif comportamiento == 3:
-            malo  = "Malo"
-            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(malo, perro_cargar_comportamiento)          
+            query = 'UPDATE perro SET comportamiento = "Malo" WHERE nombre = "{}"'.format(perro_cargar_comportamiento)          
         elif comportamiento == 4:
-            muy_malo  = "Muy malo"
-            query = 'UPDATE perro SET comportamiento = "{}" WHERE nombre = "{}"'.format(muy_malo, perro_cargar_comportamiento)        
+            query = 'UPDATE perro SET comportamiento = "Muy malo" WHERE nombre = "{}"'.format(perro_cargar_comportamiento)        
         self.conexionDB.ejecutar_query(query)
    
     def cargar_personal(self, puesto, nombre, apellido, DNI, direccion, telefono, email, años_experiencia, sueldo):
