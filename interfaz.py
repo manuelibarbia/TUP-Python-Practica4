@@ -221,4 +221,17 @@ button_agregar_perro.grid(row=9, column=1, pady=30)
 
 #**********Agregar personal**********#
 
+#**********Mostrar peluqueros**********#
+
+ttk.Label(tabla8, text="Codigo identificatorio").grid(row=0, column=0, padx=5, pady=5)
+ttk.Label(tabla8, text="Nombre").grid(row=0, column=1, padx=5, pady=5)
+ttk.Label(tabla8, text="Apellido").grid(row=0, column=2, padx=5, pady=5)
+ttk.Label(tabla8, text="DNI").grid(row=0, column=3, padx=5, pady=5)
+ttk.Label(tabla8, text="Direccion").grid(row=0, column=4, padx=5, pady=5)
+ttk.Label(tabla8, text="Teléfono").grid(row=0, column=5, padx=5, pady=5)
+ttk.Label(tabla8, text="Email").grid(row=0, column=6, padx=5, pady=5)
+ttk.Label(tabla8, text="Años de experiencia").grid(row=0, column=7, padx=5, pady=5)
+ttk.Label(tabla8, text="Sueldo").grid(row=0, column=8, padx=5, pady=5)
+
+#**********Mostrar peluqueros**********#
 root.mainloop()
