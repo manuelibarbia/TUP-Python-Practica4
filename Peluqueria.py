@@ -4,7 +4,7 @@ import pprint
 
 class Perro():
 
-    def __init__(self, nombre, dueno, direccion, telefono, baño=0, baño_y_corte=0, comportamiento = 0):
+    def __init__(self, nombre, dueno, direccion, telefono, baño=0, baño_y_corte=0, comportamiento = "No definido"):
         self.nombre = nombre
         self.dueno = dueno
         self.direccion = direccion
@@ -90,9 +90,9 @@ class Peluqueria():
         if perros is None or perros == []:
             print("No hay perros cargados para mostrar")
         else:  
-            print("ID ******* NOMBRE ******* DUEÑO ******* DOMICILIO ******* TELÉFONO ******* BAÑO ******* BAÑO Y CORTE")
+            print("ID ******* NOMBRE ******* DUEÑO ******* DOMICILIO ******* TELÉFONO ******* BAÑO ******* BAÑO Y CORTE ******* COMPORTAMIENTO")
             for datos in perros:
-                print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]))
+                print(str(datos[0]) + " ******* " + str(datos[1]) + " ******* " + str(datos[2]) + " ******* " + str(datos[3]) + " ******* " + str(datos[4]) + " ******* " + str(datos[5]) + " ******* " + str(datos[6]) + " ******* " + str(datos[7]))
 
     def agregar_comportamiento_perro(self, perro_cargar_comportamiento, comportamiento, muy_bueno = 0, bueno =0, malo =0, muy_malo = 0):
         if comportamiento != 1 and comportamiento != 2 and comportamiento != 3 and comportamiento != 4:
